@@ -1,39 +1,47 @@
-# libraries for use with @hauke5 apps in NextJS
+# components for use with @hauke5 apps in NextJS
 
-## apps
-support for multi-app launch pages
-- `AppsContext`: provides a context for the currently running app, as well as `roles` defined for the app.
-- `AppTitleBar`: a title bar, showing the currently running app name and login-status information, with provisions to add app-specific items such as tabs, etc.
-- `useAppDesc`: provides information on the currently running app to components.
-- `useAppsContext`: used in conjunction with `AppsContext`
-- `useGitBranch`: provided information on the currently active git branch in the CWD
-- `serverState`: provides a server-side status mechanism.
+## Autohide
 
-## auth
-support for `next-auth`-based authentication in apps and components.
-- `SignedInAs`: component to show the currently logged in user and their role.
-- `SignInPage`: custom sign-in page
-- `AuthContext`: provides the authetication context to pages and components
-- `useAuthContext`: used in conjunction with `AuthContext`
-- `useAuthorizedUserName`: shorthand hook to directly retrieve the name of the logged in user
+## Bar
 
-## db
-database support functions
-Currently implemented DB adapters:
-- prisma
+## Button
 
-## errors
-support for using `ErrorBoundarys`
+## Canvas
 
-## fetcher
-utility to provide a `fetch` function that supports caching, pacing, and authentications
+## Card
 
-## fileIO
-provides sandboxed fileIO operations on the server to browser components.
+## Collapsible
 
-## hooks
-a collection of hooks for use by apps and components
+## DataBar
 
-## utils
-a collection of utility functions for use by apps and components. See the `readme.md` inside the `utils` folder
+## Dialog
 
+## Drag
+
+## Graph
+
+## Grid
+
+## Icon
+
+## Input
+
+## Menu
+
+## Popup
+
+## ProseEditor
+
+## Scale
+
+## Scrollable
+
+## SearchIndex
+
+## Select
+
+## Slider
+
+## Table
+
+## Tabs
