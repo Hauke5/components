@@ -1,6 +1,6 @@
 {
   "name": "@hauke5/components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "nextjs component modules for use with hauke5 apps",
   "main": "index.js",
   "scripts": {
