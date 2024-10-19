@@ -1,0 +1,44 @@
+
+$radius: 3px;
+
+
+.label {
+   padding-top:    20px;
+   padding-left:   10px; 
+   font-size:      80%; 
+   color:         #040;
+
+}
+.slider {
+   padding:       5px 0;
+   margin:        10px 0; 
+   width:         300px; 
+   border:        1px solid #eee; 
+}
+
+.fgStyle {
+   transition: width 0.2s ;
+   border-radius: $radius;
+   background-color: #8c8;
+   mix-blend-mode: screen;
+}
+.bgStyle {
+   border:none;
+}
+
+.valStyle {
+   color:            #8c8;
+   display:          flex;
+   width:            100%; 
+   justify-content:  space-between;
+   font-size:        12px;
+   padding:          0 10px;
+}
+
+
+.stepSlider {
+   // padding:       5px 0;
+   // margin:        10px 0; 
+   // width:         300px; 
+   border:        1px solid #eee; 
+}

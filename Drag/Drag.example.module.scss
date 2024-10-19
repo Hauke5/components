@@ -1,0 +1,65 @@
+$grid-width2: 2px;
+$grid-width3: 30px;
+$grid-color: #fcc;
+
+@mixin frame {
+   width:100%;
+   height:100%;
+   border: 1px solid #ccc;
+   position:relative;
+   &>div {
+      transform: translateY(-3px);
+   }
+   .draggable {
+      @include draggable;
+      transition: top 0.1s, left 0.1s;
+      width: 25px;
+      min-width: max-content;
+      min-height: 25px;
+   }
+}
+
+@mixin draggable {
+   padding: 5px;
+   margin: 5px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   background-color:#eef;
+   position:absolute;
+   transition-timing-function: ease-out;
+   min-width: max-content;
+   transform: translate(-50%, -50%);
+}
+
+
+.content {
+   margin-left: 10px;
+   width:100%;
+   height:600px;
+
+   .frame1 {
+      @include frame;
+      background-color: #fff;
+   }
+
+   .frame2 {
+      @include frame;
+      background: repeating-linear-gradient(90deg,$grid-color 0px, transparent $grid-width2, transparent 100-$grid-width2, $grid-color 100px),
+                  repeating-linear-gradient(180deg,$grid-color 0px, transparent $grid-width2, transparent 100-$grid-width2, $grid-color 100px);
+   }
+
+   .frame3 {
+      @include frame; 
+      background: repeating-linear-gradient(90deg,$grid-color 0px, transparent $grid-width3, transparent 100-$grid-width3, $grid-color 100px),
+                  repeating-linear-gradient(180deg,$grid-color 0px, transparent $grid-width3, transparent 100-$grid-width3, $grid-color 100px);
+   }
+
+   .result {
+      padding: 10px;
+   }
+
+   // .seqDrag {
+   //    // height: min-content;
+   //    // min-height: 25px;
+   // }
+}

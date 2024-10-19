@@ -1,0 +1,43 @@
+
+$disabledColor:   #888;
+$activeColor:     #888;
+
+.menuContainer {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.popupMenu {
+   position: absolute;
+   z-index: 10000;
+   white-space: nowrap;
+   // translate: -50% -2em;
+   // background: linear-gradient(#888, black 12px, black 20px, #444);
+   .menu {
+      border-radius: 5px;
+      background: linear-gradient(#888, black 12px, black 20px, #444);
+      color: white;
+      // stroke: white;
+      fill: white;
+      border-radius: 5px;
+      &>div {
+         padding: 2px 2px;
+      }
+      &>[menu-active='true'] {
+         background: linear-gradient(#aaa, #444 12px, #444 20px, #666);
+         color: #4d4;
+         fill: #4d4
+      }
+      &>:hover {
+         background-color: #888;
+      }
+      &>[menu-disabled='true'] {
+         fill:    $disabledColor;
+         color:   $disabledColor;
+         filter:  none;
+      }
+
+   }
+}
+

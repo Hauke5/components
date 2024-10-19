@@ -1,0 +1,188 @@
+@import '../styles/sharedStyles.scss';
+
+.menuBar {
+   padding: 0 5px;
+   font-size:16px;
+   .fileDropDownMenu {
+      font-size: 90%;
+      // background-color: #fffff4;
+      margin-right: 10px;
+   }
+
+   .smallText {
+      font-size: 80%;
+   }
+
+   .narrMenuDropdown {
+      // background-color: #fffff4 !important;
+      margin-right: 10px;
+   }
+   div.narrMenuIcon {
+      display:flex;
+      flex-flow: row nowrap;
+      font-size:16px;
+      padding-top: 3px !important;
+      padding-left: 3px !important;
+      padding-right: 3px !important;
+   }
+   div.narrMenuTags {
+      fill: #080;
+   }
+
+   .disabled {
+      // @include menuButton;
+      fill: #888;
+      color: #888;
+   }
+   .active {
+      background-color: #ccccc4 !important;
+   }
+   .inactive {
+      color: #888;
+   }
+}
+@mixin menuButton {
+   font-size: 14px;
+   // width: 26px;
+   // border: 1px solid #ccc;
+   // border-radius: 5px;
+   display:flex;
+   justify-content: center;
+   // align-items: center;
+   // margin: 2px;
+}
+
+
+.underlineButton {
+   @include menuButton;
+   text-decoration-line: underline;
+}
+
+.italicButton {
+   @include menuButton;
+   font-style: italic;
+}
+
+.strikeButton {
+   @include menuButton;
+   text-decoration: line-through;
+}
+.boldButton {
+   @include menuButton;
+   font-weight: bold;
+}
+.paragraphButton {
+   @include menuButton;
+   [theme='dark'] & {
+      background-color: transparent;
+   }
+}
+.markButton {
+   @include menuButton;
+}
+.codeButton {
+   @include menuButton;
+   @include code;
+   [theme='dark'] & {
+      background-color: #444;
+   }
+}
+
+
+.linkMenuItem {
+   // @import 'prosemirror';
+   height: 10px;
+}
+
+.linkDialog {
+   border: 1px solid #ccf;
+   border-radius: 5px;
+   padding: 5px;
+   // display: grid;
+   // grid-template-columns: repeat(4, 50px);
+   // grid-template-rows: 20px;
+   align-items: center;
+   gap: 10px;
+   position: absolute;
+   background-color: #fff;
+   z-index: 999;
+   .label {
+      color: #888;
+      // background-color: #eee;
+   }
+   .field {
+      grid-column: 2/5;
+      border: 1px solid #ccf;
+      height: 20px;
+      margin-top: 2px;
+      // background-color: #eee;
+   }
+   .okButton {
+      grid-column: 1/3; 
+      background-color: #aca;
+   }
+   .cancelButton {
+      grid-column: 3/5; 
+      background-color: #caa;
+   }
+}
+
+.mark {
+   background-color: #ff0 !important;
+   color: black;
+   [theme='dark'] & {
+      background-color: #888 !important;
+      color: #ff0;
+      fill: #ff0;
+   }
+}
+
+
+@mixin menuHeader($level) {
+   @include header($level);
+   font-weight: bold;
+   margin:0;
+   padding:0;
+   [theme='dark'] & {
+      color:#ccf;
+   }
+}
+
+.h1Menu {
+   @include menuHeader(1);
+}
+
+.h2Menu {
+   @include menuHeader(2);
+}
+
+.h3Menu {
+   @include menuHeader(3);
+}
+
+.h4Menu {
+   @include menuHeader(4);
+}
+
+.h5Menu {
+   @include menuHeader(5);
+}
+
+.h6Menu {
+   @include menuHeader(6);
+}
+
+.blockQuote {
+   @include blockQuote;
+   padding-left: 5px !important;
+   padding-right: 5px !important;
+   [theme='dark'] & {
+      background-color: #888 !important;
+   }
+}
+
+.pre {
+   @include pre;
+   padding-left: 5px !important;
+   padding-right: 5px !important;
+}

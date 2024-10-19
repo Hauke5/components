@@ -1,0 +1,88 @@
+@use "@hauke5/components/styles/standardButton" with (
+   $hoverBrightness:  0.9,
+);
+
+
+.button {
+   @include         standardButton.btnStyle($selected:false);
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: center;
+   align-items: stretch;
+   text-align: center;
+   overflow:hidden;
+   &:hover {
+      filter: brightness(0.95);
+   }
+   &.state1 {
+      @include       standardButton.btnStyle($selected:true);
+   }
+}
+
+
+$sliderSize: 18px;
+$slotMainAxis: 30px;
+$slotOrthAxis: 15px;
+$sliderOrth: calc(($slotOrthAxis - $sliderSize) / 2);
+$sliderOn:   $slotMainAxis - $sliderSize - $sliderOrth;
+$sliderOff:  $sliderOrth;
+.onOffButton {
+   @include            standardButton.nonEditable;
+   display: flex;
+   align-items: center;
+   .label {
+      color: black;
+   }
+   &.vertical {
+      flex-flow: column nowrap;
+      .slot {
+         width:  $slotOrthAxis;
+         height: $slotMainAxis;
+         margin-top: 5px;
+         &.on .slider{
+            left: $sliderOrth;
+            bottom: $sliderOn;
+         }
+         &.off .slider{
+            left: $sliderOrth;
+            bottom: $sliderOff;
+         }
+      }
+   }
+   &.horizontal {
+      flex-flow: row nowrap;
+      .slot {
+         width:  $slotMainAxis;
+         height: $slotOrthAxis;   
+         margin-left: 10px;
+         &.on .slider{
+            top: $sliderOrth;
+            left: $sliderOn;
+         }
+         &.off .slider{
+            top: $sliderOrth;
+            left: $sliderOff;
+         }
+      }
+   }
+   .slot{
+      position: relative;
+      border-radius: calc($slotOrthAxis / 2);
+      transition: background-color linear 0.1s ;
+      &.on {
+         background-color: #88f;
+      }
+      &.off {
+         background-color: #ccc;
+      }
+      .slider {
+         transition: left 0.1s linear;
+         position: absolute;
+         background-color: #f8f8f8;
+         height: $sliderSize;
+         width: $sliderSize;
+         border-radius: $sliderSize;
+         border: 1px solid #888;
+      }
+   }
+}

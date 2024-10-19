@@ -1,0 +1,42 @@
+
+
+.editor {
+   position: relative;
+   height: auto;
+   min-height  : 100%;
+   width   : 100%;
+   @import './proseEditor.scss';
+
+   &>div:first-child {     // .ProseMirror-menubar-wrapper
+      outline: none;       // https://developer.mozilla.org/en-US/docs/Web/CSS/outline
+      height : 100%;
+      position:relative;
+      display: flex !important;
+      flex-flow: column nowrap;
+      &>div:first-child {  // .ProseMirror-menubar
+         width: 100%;
+         position: absolute;
+         display: flex;
+         flex-flow: row nowrap;
+      }
+   }
+
+   blockquote {
+      background-color: #eee;
+   }
+}
+
+.popupMenu {
+   &::backdrop {
+      background-color:transparent;
+   }
+   border-radius: 5px;
+   border: none;
+   position:absolute;
+   overflow:visible;
+   transform: translate(-50%, 0);
+   [menu-bar] {
+      border-radius: 5px;
+      border: none;
+   }
+}

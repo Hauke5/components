@@ -1,0 +1,25 @@
+
+@mixin scrollable {
+   overflow-y: auto;
+   overflow-x: hidden;
+   scrollbar-width:thin;
+   scrollbar-color:#bbb transparent;
+   &::-webkit-scrollbar {
+      background: transparent; /* Chrome/Safari/Webkit */
+      width: 0px;
+   }
+}
+
+// A list of many items that can be scrolled
+.scrollable {
+   height: 100%;
+   @include scrollable;
+   &.header {
+      &>:first-child {
+         position: sticky;
+         top: 0;
+         // background-color: white;
+      }
+   }
+}
+

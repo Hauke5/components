@@ -1,0 +1,64 @@
+
+.dragOver {
+   background-color: #eef !important;
+}
+
+.dropTarget {
+   width: 100%;
+}
+
+.draggable {
+   width: 100%;
+}
+
+//--------------------------------
+@mixin draggable {
+   position:absolute;
+   min-width: max-content;
+}
+
+.dragFrame {
+   position:relative;
+   width:100%;
+   height:100%;
+
+   .draggable {
+      @include draggable;
+      min-height: 25px;
+   }
+}
+
+
+
+.seqDragFrame {
+   position:relative;
+   width:   100%;
+   height:  40px;
+      
+   .sequenceDraggable {
+      @include draggable;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 5px;
+      background-color:#eef;
+      transition-timing-function: ease-out;
+      // height: min-content;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: left 0.1s;
+      .label {
+         display: inline-block;
+      }   
+      .icon {
+         position: relative;
+         right: -5px;
+      }
+      &.dragging {
+         z-index: 999;
+         filter:brightness(0.9);
+      }
+   }
+}
+
+

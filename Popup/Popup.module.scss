@@ -1,0 +1,10 @@
+.popup {
+   position: absolute;
+   caret-color: transparent !important;
+}
+.container {
+   position: absolute;
+   z-index: 10000;
+   top:0;
+   left:0;
+}

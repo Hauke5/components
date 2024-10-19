@@ -1,0 +1,105 @@
+
+
+@mixin axisLine {
+   fill:    none;
+   stroke:  #888;
+   stroke-width: 2px;
+}
+@mixin axisTicks {
+   fill:    none;
+   stroke:  #888;
+}
+@mixin axisLabels {
+   font-size: 10px;
+   fill:    #888;
+   stroke:  none;
+}
+@mixin gridLines {
+   fill:    none;
+   stroke:  #ddd;
+   stroke-width: 0.5px; 
+}
+
+
+.graph {
+   background-color: #fff;
+   color: transparent;
+   position:relative;
+   .xaxis {
+      .line {
+         @include axisLine;
+      }
+      .ticks {
+         @include axisTicks;
+      }
+      .labels {
+         @include axisLabels;
+      }
+   }
+   .yaxis {
+      .line {
+         @include axisLine;
+      }
+      .ticks {
+         @include axisTicks;
+      }
+      .labels {
+         @include axisLabels;
+      }
+   }
+   .horGrid {
+      @include gridLines;
+   }
+   .verGrid {
+      @include gridLines;
+   }
+   .title {
+      fill:    #004;
+   }
+   .series {
+      fill:    none;
+      stroke:  none;
+      .line {
+         stroke: #888;
+      }
+      .area {
+         fill:    #ccc;
+         opacity: 30%;
+      }
+      .marker {
+         fill:   #efe;
+         stroke: #ccc;
+      }
+      .label {
+         fill:   #080;
+         stroke: none;
+         font-size: 10px;
+      }
+   }
+   .tooltip {
+      stroke:   #00f;
+      fill:    #00f;
+      font-weight: bold;
+      font-size: 11px;
+      .label {
+         transition: all 0.2s steps(5);  
+         text:first-child {
+            stroke:  #fff;
+            fill:    none;
+            stroke-width: 3px; 
+         }
+         text:last-child {
+            stroke:  none;
+            fill:    #00f;
+            stroke-width: 1px; 
+         }
+      }
+      .circle {
+         fill:       none;
+         transition: all 0.2s ease;   
+      }
+      .line {
+         stroke:   #00f;
+      }
+   }
+}

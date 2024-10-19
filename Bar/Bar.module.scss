@@ -1,0 +1,38 @@
+$height: 15px;
+$radius: $height - 3;
+$fontSize: $height - 3;
+
+.fgStyle {
+   transition: width 0.2s ;
+   border-radius: $radius;
+   background-color: #88c;
+   // mix-blend-mode: screen;
+}
+.bgStyle {
+   border-radius: $radius;
+   border: 1px solid #88c;
+}
+.valStyle {
+   font-size: $fontSize;
+   color: #aaf;
+}
+
+.bar {
+   position: relative;
+   width: 100%;
+   .foreground {
+      position: absolute;
+      height: $height;
+      z-index: 20;
+   }
+   .background {
+      position: relative;
+      height: $height;
+      margin:0;
+      width:100%;
+   }
+   .valueDisplay {
+      position: absolute;
+      z-index: 30;
+   }
+}

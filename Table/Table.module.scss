@@ -1,0 +1,55 @@
+$arrowColor: #888;
+
+.table {
+   overflow-y: auto;
+   scrollbar-width:thin;
+   scrollbar-color:#bbb transparent;
+   position: relative;
+   .header {
+      display:contents;
+      font-weight: bold;
+      &>* {
+         position: sticky;
+         top: 0;
+         z-index: 100;
+         // background-color: white;
+         opacity: 1;
+      }
+      width:100%;
+      .headerTitle {
+         padding-right: 10px;
+         display: inherit;
+      }
+   }
+   .cell {
+      display:block;
+      overflow:hidden;
+      text-overflow: ellipsis;
+   }
+   // div {
+   //    width:100%;
+   // }
+}
+
+.sortAscending::after {
+   color: $arrowColor;
+   padding: 0 2px;
+   content: '\002193';    // Down Arrow
+}
+.sortDescending::after {
+   color: $arrowColor;
+   padding: 0 2px;
+   content: '\002191';    // Up Arrow
+}
+
+.right {
+   text-align: right;
+}
+
+.left {
+   text-align: left;
+}
+
+.center {
+   text-align: center;
+}

@@ -1,0 +1,51 @@
+
+@mixin moveable {
+   position: absolute;
+   z-index: 999;
+   &.ver {
+      transform:translate(0, -50%);
+   }
+   &.hor {
+      transform:translate(-50%, 0);
+   }
+   opacity: 0%;
+}
+
+
+.grid {
+   overflow-x: hidden;
+   overflow-y: auto;
+   display: grid;
+   height: 100%;
+   position: relative;
+
+   .moveable {
+      @include moveable;
+      &.hor {
+         height: 100%;
+         width: 20px;
+         cursor: col-resize; 
+      }
+      &.ver {
+         height: 20px;
+         width:  100%;
+         cursor: row-resize; 
+      }
+   }
+}
+
+
+.example {
+   margin: 10px;
+   border: 1px solid #eee;
+   // padding: 5px;
+   .col {
+      border-right: 1px solid blue;  
+      &:last-child { border-right: none; }
+   }
+   .row {
+      // padding: 5px;
+      border-bottom: 1px solid blue; 
+      &:last-child { border-bottom: none; }
+   }
+}

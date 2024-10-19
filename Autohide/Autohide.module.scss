@@ -1,0 +1,37 @@
+$selectedRadius: 10px;
+$selectedBgColor: #fff !default;
+$selectedColor:   #000 !default;
+$borderColor: #bbd !default;
+$hoverBrightness: 0.95 !default;
+$defaultbgColor: #fff !default;
+$defaultColor: #000 !default;
+$transitionTime: 0.2s;
+$hidingDelay: 0.5s;
+
+@mixin itemShared($delay) {
+   transition: background-color $transitionTime ease-in-out $delay, 
+               height $transitionTime ease-in-out $delay, 
+               opacity $transitionTime ease-in-out $delay,
+               border-radius $transitionTime ease-in-out $delay;
+}
+
+.autohide {
+   // height: min-content;
+   &:not(:hover) {
+      @include itemShared($hidingDelay);
+      width:90%;
+      margin-left:5%;
+      &>*{
+         background-color: rgba(0,0,0, 1);
+         border-radius: 10px;
+      }
+   }
+   &:not(:hover) * {
+      @include itemShared($hidingDelay);
+      height: 8px !important;
+      opacity: 0.1 !important;
+   }
+   &:hover, &:hover * {
+      @include itemShared(0s);
+   }
+}

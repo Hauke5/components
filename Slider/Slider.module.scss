@@ -1,0 +1,23 @@
+
+$height: 15px;
+$radius: $height - 3;
+
+
+.stepSlider {
+   padding: 0 30px;
+   position: relative;
+   width: 100%;
+   box-sizing: border-box;
+   .icon {
+      height: $height;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      cursor:cell;
+      &:first-child    { left: 0px; }
+      &:nth-of-type(2) { left: 15px; }
+      &:nth-of-type(4) { right: 4px; }
+      &:last-child     { right: -11px; }
+      border-radius: 12px;
+   }
+}

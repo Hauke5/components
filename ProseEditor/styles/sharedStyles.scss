@@ -1,0 +1,117 @@
+@use "sass:list";
+
+$codeBackground: #ECECE2;
+
+@mixin blockQuote {
+   margin: 0;
+   background-color: #f8f8f8;
+   padding-left: 10px;
+   border-left: 2px solid #ccc;
+}
+
+@mixin pre {
+   font-size: 90%;
+   background-color: $codeBackground;
+   color: #008;
+   line-height: 1.5em;
+   padding-left: 2px;
+   code {
+      padding: 0
+   }
+}
+
+@mixin code {
+   background-color: $codeBackground;
+   padding: 0px 2px;
+   border-radius: 2px;
+}
+
+
+$hdgSizes: 220%, 180%, 150%, 130%, 110%, 100%;
+$hdgColors: #006, #006, #448, #446, #446, #446;
+$mrkXOff: -13px -13px -13px -13px -13px -13px;
+$mrkYOff:   12px  10px  8px  7px  7px  4px; 
+$arrowSizeWidth: 5px;
+$arrowSizeHeight: 7px;
+$arrowColor: #aaf;
+
+@mixin collapseMarker($dx, $dy, $f) {
+   width: 0; 
+   height: 0; 
+   position:absolute;
+   transform: translate(calc($dx + $f), calc($dy - $f));
+   user-select:none;
+   cursor: pointer;
+}
+
+@mixin header($level) {
+   margin: 0;
+   padding: 0;
+   border: none;
+   font-weight: bold;
+   line-height: initial;
+   font-size: list.nth($hdgSizes, $level);
+   font-style: normal;
+   color: list.nth($hdgColors, $level);
+   marker-expanded { 
+      @include collapseMarker(list.nth($mrkXOff, $level), list.nth($mrkYOff, $level), 0px);
+      border-left: $arrowSizeWidth solid transparent;
+      border-right: $arrowSizeWidth solid transparent;
+      border-top: $arrowSizeHeight solid transparent;
+      &:hover {
+         border-top-color: $arrowColor;      // list.nth($hdgColors, $level);
+      }
+   }
+   marker-collapsed { 
+      @include collapseMarker(list.nth($mrkXOff, $level), list.nth($mrkYOff, $level), 1.3px);
+      border-top: $arrowSizeWidth solid transparent;
+      border-bottom: $arrowSizeWidth solid transparent;      
+      border-left: $arrowSizeHeight solid $arrowColor;      // list.nth($hdgColors, $level);   
+   }
+   @if $level == 1 {
+      font-family: 'Times New Roman', Times, serif;
+      margin-top:    20px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid list.nth($hdgColors, 1);
+   } @else if $level == 2 {
+      margin-top:    20px;
+      margin-bottom: 5px;
+   } @else if $level == 3 {
+      margin-top:    20px;
+      margin-bottom: 5px;
+   } @else if $level == 4 {
+      margin-top:    15px;
+      margin-bottom: 5px;
+   } @else if $level == 5 {
+      margin-top:    10px;
+      margin-bottom: 5px;
+   } @else if $level == 6 {
+      margin-top:    10px;
+      margin-bottom: 5px;
+      font-style: italic;
+   }
+}
+
+.h1 {
+   @include header(1);
+}
+
+.h2 {
+   @include header(2);
+}
+
+.h3 {
+   @include header(3);
+}
+
+.h4 {
+   @include header(4);
+}
+
+.h5 {
+   @include header(5);
+}
+
+.h6 {
+   @include header(6);
+}

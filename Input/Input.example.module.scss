@@ -1,0 +1,40 @@
+@use "@hauke5/components/styles/standardButton" with (
+    $hoverBrightness:  1.05,
+);
+
+
+.example {
+   .row {
+      padding:10px;
+      display:flex; 
+      column-gap:30px; 
+      align-items:center; 
+      font-size: 14px;
+      min-height: 1.2em;
+      span {
+         width: 150px;
+      }
+      input, select {
+         width: 150px;
+      }
+   }
+   .field {
+      @include       standardButton.btnStyle();
+      &>div {
+         padding: 0 5px;
+         background-color: #f8f8ff;
+         box-shadow: 2px 2px 20px #ccc;
+      }
+      // border-radius: 2px;
+      box-shadow: none;
+      padding:    5px; 
+      background-color: #eee;
+      width: 100px;
+   }
+   
+   select.field {
+      background-color: #eef;
+      // font-size: 16px;
+      box-shadow: none;
+   }
+}

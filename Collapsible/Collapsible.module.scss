@@ -1,0 +1,38 @@
+$arrowSize: 8;
+$transitionPeriod: 0.1s;
+
+.collapsible {
+   position:relative;
+   width: 100%;
+   &>* {
+      width: 100%;
+   }
+   &>*:first-child::before {
+      transition: transform $transitionPeriod ease-in-out;
+      position:absolute;
+      left: 0.5em;
+      top: 0.5em;
+      content: '';
+      background-color: #c3cce6;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      width: #{$arrowSize}px;
+      height: #{$arrowSize}px;
+   }
+   &>*:not(:first-child) {
+      transition: height  $transitionPeriod ease-in-out;
+      overflow:hidden;
+   }
+   &.expanded>* {
+      &:first-child::before {
+         content:'-';
+         transform: rotate(0.5turn);
+         background-color: #98a5cc;
+      }
+   } 
+   &.collapsed>* {
+      &:first-child::before {
+         content:'-';
+         transform: rotate(0.25turn);
+      }
+   }
+}

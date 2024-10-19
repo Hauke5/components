@@ -1,0 +1,54 @@
+
+
+.frame {
+   position: relative;
+   width: 100%;
+   // border: 0.5px solid #ccf;
+   border-radius: 5px;
+   padding-left: 5px;
+}
+input.input {
+   padding:0;
+   margin:0;
+   border: none;
+   line-height: 1em;
+   height: 1.4em !important;
+}
+.input {
+   height: 100%;
+   min-height: 1em;
+   max-height: 2em;
+   // line-height: 1.3em;
+   width: 100%;
+   caret-color:auto;
+   white-space: nowrap;
+   &.unfocusedTextEntry {
+      width: 100%;
+      caret-color: transparent !important;
+      // color: #008;
+      // border-bottom: 1px solid #ccc;
+      text-overflow: ellipsis;
+      overflow: hidden;
+   }
+}
+
+.matches {
+   // position: absolute;
+   // top:20px;
+   // left:10px;
+   padding: 5px;
+   border: 1px solid #ccf;
+   min-height: 1em;
+   z-index: 10000;
+   background-color: white;
+   line-height: 1.4em;
+   font-size: 80%;
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+   .suggestion {
+      padding-left: 5px;
+      &:hover {
+         background-color: #cec;
+      }
+   }
+}

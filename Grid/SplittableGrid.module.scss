@@ -1,0 +1,109 @@
+
+$arrowSize: 8px;
+
+@mixin extend {
+   position: absolute;
+   right:   auto;
+   top:     auto;
+   background-color: rgba(0,0,0,0);
+   // background-color: #ddd;
+   // fill: #080;
+   opacity: 0.2;
+   &:hover {opacity: 1;}
+}
+
+
+.leafFrame {
+   height:100%;
+   overflow: hidden;
+   position: relative;
+   .actions {
+      position: absolute;
+      left:    12px;
+      right:   auto;
+      top:     auto;
+      bottom:  12px;
+      opacity: 1;
+      width:  15px;
+      height: 15px;
+      border-radius: 8px;
+      background-color: #ccc;
+      caret-color: transparent !important;
+      overflow:hidden;
+      transition: width 0.3s, height 0.3s;
+      fill: #ccc;
+      &.top {
+         top:   12px;
+         bottom:auto;
+      }
+      &.right {
+         right: 12px;
+         left:  auto;
+      }
+
+      &:hover {   // activate action elements
+         background-color: #eee;
+         width: 30px;
+         height: 30px;
+         opacity: 1;
+         border-radius: 4px;
+      }
+      .extendLR {
+         @include extend;
+         left:    20px;
+         bottom:  2px;
+         height: 0px; 
+         border-top:  $arrowSize solid transparent;
+         border-bottom: $arrowSize solid transparent;
+         border-left:   $arrowSize solid green;
+         border-right: none;
+         &.top {
+            top:   2px;
+            bottom:auto;
+         }
+         &.right {
+            right: 20px;
+            left:  auto;
+            border-left:    none;
+            border-right:   $arrowSize solid green;
+         }
+      }
+      .extendTB {
+         @include extend;
+         left:    2px;
+         bottom:  20px;
+
+         width: 0px; 
+         height: 0px; 
+         border-left:      $arrowSize solid transparent;
+         border-right:     $arrowSize solid transparent;
+         border-bottom:    $arrowSize solid green;
+         border-top:       none;
+         &.top {
+            top:   20px;
+            bottom:auto;
+            border-top:   $arrowSize solid green;
+            border-bottom: none;
+         }
+         &.right {
+            right: 2px;
+            left:  auto;
+         }
+      }
+      .close {
+         @include extend;
+         &:hover { fill: red; }
+         left:    0px;
+         bottom:  0px;
+         border-bottom-right-radius: 5px;
+         &.top {
+            top:   0px;
+            bottom:auto;
+         }
+         &.right {
+            right: 0px;
+            left:  auto;
+         }
+      }
+   }
+}

@@ -1,0 +1,68 @@
+
+$radius:            5px  !default;
+$selectedRadius:   10px;
+$borderColor:     #bbd !default;
+$hoverBrightness:   0.95 !default;
+$defaultbgColor:  #fff !default;
+$defaultColor:    #000 !default;
+$selectedBgColor: #fff !default;
+$selectedColor:   #000 !default;
+$align-items:     center !default;
+$item-padding:       5px !default;
+$transitionTime:    0.2s;
+$hidingDelay:        0.5s;
+
+@mixin itemColors {
+   background-color: $defaultbgColor;
+   color: $defaultColor;
+   fill: $defaultColor;
+   border: none;
+   border-radius: 0 0 0 0;
+   border-top-left-radius: $selectedRadius;
+   border-bottom: 1px solid $borderColor;
+   opacity: 1;
+   border-color: $borderColor;
+   height: 30px;
+
+   &:hover {
+      filter: brightness($hoverBrightness);
+   }
+   &.selected {
+      font-weight:bold;
+      background-color: $selectedBgColor;
+      color: $selectedColor;
+      fill: $selectedColor;
+      border: 1px solid $borderColor;
+      border-bottom: none;
+   }
+}
+
+
+.tabsGroup {
+   width: 100%;
+   height: 100%;
+   // max-height: auto;
+   border-radius: $radius;
+   display:flex;
+   flex-flow: row wrap;
+   align-items: center;
+   justify-content: center;
+   .tabsItem {
+      padding-left: $item-padding;
+      padding-right: $item-padding;
+      position:relative;
+      width:auto;
+      height:100%;
+      display:flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: $align-items;
+      text-align: center;
+      overflow:hidden;
+      user-select:none;
+      @include itemColors;
+   };
+}
+
+
+

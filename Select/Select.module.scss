@@ -1,0 +1,9 @@
+@use "@hauke5/components/styles/standardButton" with (
+    $hoverBrightness:  1.05,
+);
+
+
+.select {
+   box-shadow:    standardButton.$boxShadow;
+   @include       standardButton.btnStyle()
+}

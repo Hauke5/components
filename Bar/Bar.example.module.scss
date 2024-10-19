@@ -1,0 +1,21 @@
+
+$radius: 3px;
+
+.fgStyle {
+   transition: width 0.2s ;
+   border-radius: $radius;
+   background-color: #8c8;
+   mix-blend-mode: difference;
+}
+.bgStyle {
+   border:none;
+}
+
+.valStyle {
+   color:            #484;
+   display:          flex;
+   width:            100%; 
+   justify-content:  space-between;
+   font-size:        12px;
+   padding:          0 5px;
+}
