@@ -1,5 +1,8 @@
 # Dialog Component
-A [NextJS](https://nextjs.org/) component package for simplifying and standardizing the use of user dialog in NextJS apps.
+A [NextJS](https://nextjs.org/) component package for simplifying and standardizing the use of user dialog in NextJS apps. Supported features include:
+- movable modal dialog box
+- fully typed interface, with typing support in the dislog result for accessing items and buttons by name.
+- configurable side effects of changing an items value on other values or buttons
 
 ## Installation
 Use `npm` to install as a library:
@@ -19,34 +22,32 @@ Point a browser to http://localhost:3010/example to run the app.
 ### Defining a Dialog
 A dialog is defined by the `DialogConfig` structure, consisting of 
 - a leading title to explain the purpose of the dialog to the user
-- a list of dialog items, each consisting of a `DialogItemConfig` structure
-- and a list of buttons to perform actions
+- an optional description, accepting a ReactNode
+- an optional list of dialog items, each consisting of a `DialogItemConfig` structure
+- and a list of buttons to perform actions.
 
-A `Cancel` button will be automatically added by the component
+If not provided by the `DialogConfig`, A `Cancel` button will be automatically added by the component.
 
-A simple dialog configuration might look like this:
+A simplest version of a dialog configuration might look like this:
 ```typescript
 {
    title: 'Simple Dialog Example:',
-   elements:[
-      { 'Enter Valid Number': { type:'number', initial: 0 }},
-   ],
    buttons:[
-      { OK: {}}, 
+      { id:'OK'}, 
    ]
 }
 ```
-<img src="./docs/SimpleDialog.png" width="400">
+<img src="./SimpleDialog.png" width="300">
 
-The keys for items and buttons are by default used as their labels. Alternatively, an optional `label` field can be specified:
+The `ids` for items and buttons are by default used as their labels. Alternatively, an optional `label` field can be specified:
 ```typescript
 {
    title: 'Example:',
-   elements:[
-      { ValidItem: { type:'number', initial: 0, label:'Enter Valid Number'}},
+   items:[
+      { id:'ValidItem', type:'number', initial: 0, label:'Enter Valid Number'}},
    ],
    buttons:[
-      { OkButton: { label:'OK'}}, 
+      { id:'OkButton', label:'OK'}}, 
    ]
 }
 ```
@@ -54,11 +55,14 @@ The keys for items and buttons are by default used as their labels. Alternativel
 
 
 ## Integrating Dialogs into Components
-Add a `<Dialog>` component at the end of React nodes in your component. It takes a callback function through which it provides an `open` function that can be stored in a `Ref`. `<Dialog>` internally uses the html `<dialog>` tag, so stays invisible until opened, which happens here in `runDialog` when it is triggered by clicking on the `Open Dialog` button.
+Add a `<Dialog>` component at the end of React nodes in your component. It takes a callback function through which it provides an `open` function that can be stored in a `Ref`. `<Dialog>` internally uses the html `<dialog>` tag, so stays invisible until opened, which happens below in `runDialog` when it is triggered by clicking on the `Open Dialog` button.
 
-To open the dialog, call the `open` function provided by `<Dialog>` with the dialog content structure. The asynchronously process the dialog result. It provides 
-- the key of the button pressed (or, in some cases, an ID for some predefined dialog action sucj as double-clicking a file in a file selector field)
-- a `DialogItemResult` structure for each item key, providing the `type` and current `value` of the item, as well as a boolean `isDefault` that is `true` if the user has directly manipulated the item, and `false` if the value is either the `initial` value or the result of a `sideEffect`. 
+To open the dialog in code, call the `open` function provided by `<Dialog>` with the dialog content structure and await the result. It provides 
+- the `actionName`, i.e. id of the button pressed (or, in some cases, an ID for some predefined dialog action such as double-clicking a file in a file selector field)
+- an `items` object containing each of the item IDs, providing 
+    - the `type` of the item's value
+    - the current `value` of the item, 
+    - the `isDefault` status: `false` if the user has directly manipulated the item, and `true` if the value is either the `initial` value or the result of a `sideEffect`. 
 ```typescript
 function Component() {
    const openDialog  = useRef<OpenDialog>()
@@ -71,10 +75,20 @@ function Component() {
    async function runDialog() {
       if (openDialog.current) {
          // open the dialog with `dialogConfog` as content
-         const result = await openDialog.current(dialogConfig)
+         const result = await openDialog.current({
+            title: 'Example:',
+            items:[
+               { id:'ValidItem', type:'number', initial: 0, label:'Enter Valid Number'}},
+            ],
+            buttons:[
+               { id:'OkButton', label:'OK'}}, 
+            ]
+         })
          // process the result action and item values
          if (result.actionName==='Ok') {
-            const number = result.items['Enter Valid Number:'].value as number
+            const numberItem = result.items.ValidItem
+            const number     = numberItem.value as number
+            const isDefault  = numberItem.isDefault
             ...
          }
       }
@@ -83,44 +97,75 @@ function Component() {
 ```
 
 ## Defining Side effects
-Side effects are actions performed on the elements of a dialog box while the user manipulates them. For example, the visual state or the initial value of a dialog element can be made to change depending on the value of one or more other elements. 
+Side effects are actions performed on the elements of a dialog box while the user manipulates them. For example, the disabled state of a button or the initial value of a dialog element can be made to change depending on the value of one or more other elements. 
 
-Two types of side effects are currently available:
+Two types of side effects are available:
 
 ### Disabling Buttons
-Add a `disable` callback to a button configuration to tell the `<Dialog>` whether the button should be active or disabled.
+Add a `disable` function to a button configuration to tell the `<Dialog>` whether the button should be active or disabled. The function will receive the same `items` object as is returned when the dialog closes
 The following example disables the `OkButton` if the `ValidItem` value is `0`
 ```typescript
    ...
    buttons:[
-      {OkButton: {disable:isOKDisabled}}, 
+      {id:'OkButton', disable:(items) items.ValidItem.value===0}, 
    ]
    ...
-
-function isOKDisabled(values:ItemsLiteral) {
-   return values.ValidItem.value===0
-}
 ```
 
 ### Item SideEffects
 Add a `sideEffect` callback to an item configuration to have user-changes to the item value trigger updates to other items.
 The callback will receive the current `value` of the item, as well as a reference to the set of all items.
-In the example below, `validItemChange` will be called each time the `ValidItem` number field changes. It will change the `TextItem` field, if it hasn't been explicitely set by the user, to read `invalid number` if the number value is `0`, and `valid number` otherwise.
+In the example below, a sideEffect will be called each time the `ValidItem` number field changes. It will change the `TextItem` field, if it hasn't been explicitely set by the user, to read `invalid number` if the number value is `0`, and `valid number` otherwise.
 ```typescript
 {
    title: 'Example:',
    elements:[
-      { ValidItem: { type:'number', initial: 0, label:'Enter Valid Number:', sideEffect:validItemChange}},
-      { TextItem:  { type:'text',   initial: 'invalid', label:'Number Comment:'}},
+      { id:'ValidItem', type:'number', initial: 0, label:'Enter Valid Number:', 
+         sideEffect:(value, items)=>items.TextItem.isDefault
+            ? {TextItem: value!==0? 'valid number' : 'invalid number' }
+            : {}
+      }},
+      { id:'TextItem', type:'text',   initial: 'invalid', label:'Number Comment:'}},
    ],
    buttons:[
-      { OkButton: { label:'OK'}}, 
+      { id:'OkButton', label:'OK'}}, 
    ]
 }
+```
 
-function validItemChange(value:number, items:ItemsLiteral):{[key:string]:any} {
-   return items.TextItem.isDefault
-      ? {TextItem: value!==0? 'valid number' : 'invalid number' }
-      : {}
+## Complex Example:
+```typescript
+{
+   title: 'Dialog Example With Side-Effects:',
+   description:  <div style={{borderBottom:"1px solid gray"}}>
+      A <b>complex</b> dialog:
+      <ul className={styles.instructions}>
+         <li><b>Hint:</b>You can move the box by dragging it in the title field.</li>
+         <li>Side effects within the dialog:</li>
+         <ul className={styles.instructions}>
+            <li><b>Ok Disabled</b>: Enter a number other than <code>0</code> in the the <code>Number</code> field to enable the <code>Ok</code> button.</li>
+            <li><b>Field auto-values</b>:Changing the <code>Number</code> field automatically sets the <code>Text</code> field 
+            to <code>valid</code> or <code>invalid</code> depending on the <code>Number</code> field value, 
+            unless the user has manually changed it before</li>
+         </ul>
+         <li>Click the <code>Ok</code> button when available. 
+         The left box below will reflect the values from the dialog.</li>
+      </ul>
+   </div>,
+   items:[
+      {id:'Date',      type:'date',   initial: new Date() },
+      {id:'Number',    type:'number', initial: 0,   label:'Enter Valid Number:',  sideEffect:(value:number, items) => 
+         items.Text.isDefault
+            ? {Text:(value !== 0)? 'valid number' : 'invalid number' }
+            : {}
+      },
+      {id:'Text',      type:'text',   initial: 'invalid', list:textFieldHistory},
+      {id:'Checkbox',  type:'boolean',initial: false},
+      {id:'List',      type:'select', initial: 'two',     list:['one', 'two', 'three']},
+   ],
+   buttons:[
+      {id:'Ok', disable:(values) => values.Number.value===0}, 
+   ]
 }
 ```
+<img src="./ComplexDialog.png" width="600">
