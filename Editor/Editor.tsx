@@ -11,17 +11,17 @@ import { keymap }                   from 'prosemirror-keymap';
 import { Log }                      from '@hauke5/lib/utils';
 import { useAppDesc }               from '@hauke5/lib/apps';
 import { BaseProps }                from '@hauke5/components/BaseProps';
-import { useProseEditorContext }    from './hooks/useProseEditorContext'
+import { useEditorContext }         from './hooks/useEditorContext'
 import { changeContentPlugin, changedSelectionPlugin } 
                                     from './plugins/changedPlugin';
 import { schema, schemaPlugins }    from './setup/schema';
 import { markdownParser, markdownSerializer } 
                                     from './setup/markdown/markdown';
-import styles                       from './styles/proseEditor.module.scss'
+import styles                       from './styles/editor.module.scss'
 import { hideCompletedTodosPlugin } from './plugins/hideCompletedTodosPlugin';
 import './styles/gapcursor.css'
                                  
-const log = Log(`ProseEditor`)
+const log = Log(`Editor`)
 
 
 export function serialize(state:EditorState) {  
@@ -32,7 +32,7 @@ export type EditorView = PmEditorView & {
    __myID:  string
 }
 
-export interface ProseEditorProps extends BaseProps{
+export interface EditorProps extends BaseProps{
    panelID?:         string
    newContent?:      string
    plugins?:         (()=>Plugin[]) | Plugin[]
@@ -51,9 +51,9 @@ export interface ProseEditorProps extends BaseProps{
  * @param param 
  * @returns 
  */
-export function ProseEditor({panelID, newContent='Your Text Here', className, usePopupMenu=true, plugins, newView, title='', ...props}:ProseEditorProps) {
+export function Editor({panelID, newContent='Your Text Here', className, usePopupMenu=true, plugins, newView, title='', ...props}:EditorProps) {
    const {key}                   = useAppDesc()
-   const {addView, removeView}   = useProseEditorContext()
+   const {addView, removeView}   = useEditorContext()
    const view                    = useRef<EditorView>()
    const id                      = useId()
 

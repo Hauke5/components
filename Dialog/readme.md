@@ -1,21 +1,30 @@
 # Dialog Component
 A [NextJS](https://nextjs.org/) component package for simplifying and standardizing the use of user dialog in NextJS apps. Supported features include:
 - movable modal dialog box
-- fully typed interface, with typing support in the dislog result for accessing items and buttons by name.
-- configurable side effects of changing an items value on other values or buttons
+- fully typed interface, with typing support in the dialog result for accessing items and buttons by name.
+- configurable side effects: allow changes to an items value effect the values of other items or the the disabledness of buttons
 
 ## Installation
-Use `npm` to install as a library:
+Either 1) Use `npx` to run an example of the dialog component in a NextJS app:
 ```
-$ npm i hauke5/dialog@latest
-``` 
-
-Or use `npx` to create and start a standalone NextJS application with an example for using `<Dialog>`:
-```
-$ npx hauke5/dialog@latest
+$ npx hauke5/dialogexample
 ```
 This will start a next development server.
-Point a browser to http://localhost:3010/example to run the app.
+Point a browser to http://localhost:3001/dialog to run the app.
+
+
+Or 2) use `git clone` to install the component along with a usage example app in NextJS:
+```
+$ git clone https://github.com/Hauke5/DialogExample.git
+``` 
+This will install the required typescript components and support libraries, along with the usage example in `app/dialog/DialogExample.tsx`
+To run the example manually, follow the `git clone` command with:
+```
+cd DialogExample  # change into the newly created folder
+npm i             # install dependencies
+npm run dev       # run the development server
+```
+Again, point a browser to http://localhost:3001/dialog to run the app.
 
 ## Usage
 
@@ -51,7 +60,6 @@ The `ids` for items and buttons are by default used as their labels. Alternative
    ]
 }
 ```
-
 
 
 ## Integrating Dialogs into Components

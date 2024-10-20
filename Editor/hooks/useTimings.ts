@@ -1,7 +1,7 @@
 import { useEffect, useState } 
                                  from "react";
 import { useContentChange }      from "./useChange";
-import { useProseEditorContext } from "./useProseEditorContext";
+import { useEditorContext } from "./useEditorContext";
 
 const ACTIVE = true;
 
@@ -39,7 +39,7 @@ export type Timing = {
  * and the average time for the call. The first row contains the column headers.
  */
 export function useTimings():Timing {
-   const {currentView}  = useProseEditorContext()
+   const {currentView}  = useEditorContext()
    const change         = useContentChange(currentView)
    const [table, setTable] = useState<Timing>({
       entries:    [],

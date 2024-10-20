@@ -5,7 +5,7 @@ import { EditorState, Plugin, PluginKey }
 import { Node }            from "prosemirror-model";
 import { Log }             from '@hauke5/lib/utils/log'; 
 import { pluginTiming }    from "../hooks/useTimings";
-import styles              from '../styles/proseEditor.module.scss'
+import styles              from '../styles/editor.module.scss'
 import { findChildren }    from "../setup/Nodes";
  
 const log         = Log('foldingHeadingPlugin');

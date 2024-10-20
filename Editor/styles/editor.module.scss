@@ -5,7 +5,7 @@
    height: auto;
    min-height  : 100%;
    width   : 100%;
-   @import './proseEditor.scss';
+   @import './editor.scss';
 
    &>div:first-child {     // .ProseMirror-menubar-wrapper
       outline: none;       // https://developer.mozilla.org/en-US/docs/Web/CSS/outline

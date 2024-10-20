@@ -3,7 +3,7 @@ import { EditorState, Plugin, PluginKey }
                         from 'prosemirror-state';
 import { Dispatch, useEffect, useId, useState } 
                         from 'react';
-import { EditorView }   from '../ProseEditor';
+import { EditorView }   from '../Editor';
 
 const log = Log(`usePluginState`).debug
 

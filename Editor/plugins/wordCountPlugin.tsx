@@ -8,7 +8,7 @@ import { Decoration, DecorationSet, EditorView }
 import { getThrottle }           from "@hauke5/lib/utils";
 import { pluginTiming }          from "../hooks/useTimings";
 import styles                    from "./plugin.module.scss";
-import { useProseEditorContext } from "../hooks/useProseEditorContext";
+import { useEditorContext } from "../hooks/useEditorContext";
 
 
 const pluginName  = "wordCountPlugin"
@@ -107,7 +107,7 @@ export const wordCountPlugin = ({show=true, className}:WordCountProps) => {
 }
 
 export function useWordCountRule() {
-   const {currentView} = useProseEditorContext()
+   const {currentView} = useEditorContext()
    const words = useRef('0')
    const wordCountRule   = useRef(createWordCountRule(words))
    useEffect(()=>{

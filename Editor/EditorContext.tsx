@@ -4,12 +4,12 @@ import { createContext, useRef, useState }
 import { BaseProps }             from "@hauke5/components/BaseProps";
 import { ErrorBoundarySuspense } from "@hauke5/lib/errors/ErrorBoundary";
 import { Log }                   from "@hauke5/lib/utils";
-import { EditorView }            from "./ProseEditor";
+import { EditorView }            from "./Editor";
 
-const log = Log(`ProseEditorContext`)
+const log = Log(`EditorContext`)
 
 
-export type ProseEditorContext =  {
+export type EditorContext =  {
    currentView:   EditorView|null
    views:         EditorView[]
    addView:       (view:EditorView) => void
@@ -17,13 +17,13 @@ export type ProseEditorContext =  {
    // setContent:    (content:string) => void
 }
 
-export const proseEditorContext = createContext<ProseEditorContext|null>(null)
+export const editorContext = createContext<EditorContext|null>(null)
 
 
-type ProseEditorContextProps = BaseProps & {
+type EditorContextProps = BaseProps & {
 }
 /**
- * ## ProsemirrorContext
+ * ## EditorContext
  * provides a context convenience implementation. This context is not used by default within the `Narrative`
  * package. Rather, it is intended to be used on the app level. An example use might look like this:
  * ### Context Definition, e.g. in `layout.tsx`:
@@ -60,16 +60,16 @@ type ProseEditorContextProps = BaseProps & {
  * }
  * ```
  */
-export function ProseEditorContext({children}:ProseEditorContextProps) {
+export function EditorContext({children}:EditorContextProps) {
    const [currentView, setActiveView]  = useState<EditorView|null>(null)
    const views                         = useRef<EditorView[]>([])
    const modifyViews                   = useRef({add:addView, remove:removeView})
       
    log.debug(`render ${views.current.length} views: ${currentView?.__myID}`)
    return <ErrorBoundarySuspense what={`ProsemirrorContext`}>
-      <proseEditorContext.Provider value={{currentView, views:views.current, addView:modifyViews.current.add, removeView:modifyViews.current.remove}}>
+      <editorContext.Provider value={{currentView, views:views.current, addView:modifyViews.current.add, removeView:modifyViews.current.remove}}>
          {children}
-      </proseEditorContext.Provider>
+      </editorContext.Provider>
    </ErrorBoundarySuspense>
 
    function addView(newView:EditorView) {

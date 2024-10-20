@@ -2,8 +2,8 @@ import { MutableRefObject, useEffect, useRef }
                                  from 'react'
 import { getDebouncer, Log }     from '@hauke5/lib/utils'
 import { EditorView, serialize }           
-                                 from '../ProseEditor'
-import { useProseEditorContext } from './useProseEditorContext'
+                                 from '../Editor'
+import { useEditorContext } from './useEditorContext'
 import { useContentChange }      from './useChange'
 
 const log = Log(`useAutoAction`)
@@ -30,7 +30,7 @@ export type AutoAction = {
  * @returns a `MutableRefObject` that can be set to define the `preAction`, `postAction`, and `debouncePeriod`
  */
 export function useAutoAction():MutableRefObject<AutoAction | null> {
-   const {currentView}        = useProseEditorContext()
+   const {currentView}        = useEditorContext()
    const contentChangeState   = useContentChange(currentView)
    const actions              = useRef<AutoAction|null>(null)
    const viewRef              = useRef(currentView)

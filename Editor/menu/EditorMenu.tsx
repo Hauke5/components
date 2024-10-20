@@ -7,17 +7,17 @@ import { Menu, MenuItem}
 import { BaseProps }             from '@hauke5/components/BaseProps';
 import { useSelectionChange }    from '../hooks/useChange';
 import { useDefaultMenu }        from '../hooks/useDefaultMenu';
+import { useEditorContext }      from '../hooks/useEditorContext';
 import styles                    from './menuPopup.module.scss'
-import { useProseEditorContext } from '../hooks/useProseEditorContext';
 
-const log = Log(`ProseEditorMenu`).info
+const log = Log(`EditorMenu`).info
 
 type ProseEditorMenuProps = BaseProps & {
    items?:  MenuItem[]
 }
-export function ProseEditorMenu({items, ...props}:ProseEditorMenuProps) {
+export function EditorMenu({items, ...props}:ProseEditorMenuProps) {
    const openDialog                = useRef<OpenDialog>()
-   const {currentView}             = useProseEditorContext()
+   const {currentView}             = useEditorContext()
    const change                    = useSelectionChange(currentView)
    const defaultItems              = useDefaultMenu(false, openDialog)
    const [menuItems, setMenuItems] = useState<MenuItem[]>(items ?? defaultItems)

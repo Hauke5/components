@@ -4,7 +4,7 @@ import { Dialog, OpenDialog }
                            from '@hauke5/components/Dialog';
 import { Menu }            from '@hauke5/components/Menu/Menu';
 import { useDefaultMenu }  from '../hooks/useDefaultMenu';
-import styles              from '../styles/proseEditor.module.scss'
+import styles              from '../styles/editor.module.scss'
 
 
 export type OpenPopup = (xpos:number, ypos:number)=>Promise<void>
@@ -13,7 +13,7 @@ interface ProseEditorPopupMenuProps {
    open:    (openDialog:(xpos:number, ypos:number)=>Promise<void>)=>void
    // view:    EditorView,
 }
-export function ProseEditorPopupMenu({open}:ProseEditorPopupMenuProps) {
+export function EditorPopupMenu({open}:ProseEditorPopupMenuProps) {
    const [menuStyle, setMenuStyle]  = useState({})
    const openDialog                 = useRef<OpenDialog>()
    const popupMenu                  = useRef<HTMLDialogElement>(null)

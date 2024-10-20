@@ -13,7 +13,7 @@ import { useCurrentEditorViewRef }  from './useCurrentEditorView';
 const log = Log(`useDefaultMenu`).debug
 
 /**
- * return a list of standard menu items for use in `ProseEditorMenu`.
+ * return a list of standard menu items for use in `EditorMenu`.
  * @param compressed (default=false): if `true`, items are organized in pulldown menus for a more compressed display
  * @param openDialog use
  * @returns 

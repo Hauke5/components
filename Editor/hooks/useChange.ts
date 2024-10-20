@@ -1,5 +1,5 @@
 import { Log }                      from "@hauke5/lib/utils";
-import { EditorView }               from "../ProseEditor"
+import { EditorView }               from "../Editor"
 import { changedContentKey, changedSelectionKey } 
                                     from "../plugins/changedPlugin";
 import { usePluginState }           from "./usePluginState";

@@ -1,7 +1,7 @@
 import { MutableRefObject, useRef }                
                                  from "react"
-import { useProseEditorContext } from "./useProseEditorContext"
-import { EditorView }            from "../ProseEditor"
+import { useEditorContext } from "./useEditorContext"
+import { EditorView }            from "../Editor"
 
 
 /**
@@ -10,7 +10,7 @@ import { EditorView }            from "../ProseEditor"
  * Using a reference helps avoid a common trap when using a stale view within a closure in the calling component.
  */
 export function useCurrentEditorViewRef():MutableRefObject<EditorView | null> {
-   const {currentView} = useProseEditorContext()
+   const {currentView} = useEditorContext()
    const view = useRef<EditorView|null>(currentView)
    view.current = currentView
    return view
