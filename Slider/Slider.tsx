@@ -2,9 +2,9 @@ import { MouseEvent, useEffect, useRef, useState }
                            from 'react';
 import { mdiChevronDoubleLeft, mdiChevronDoubleRight, mdiChevronLeft, mdiChevronRight } 
                            from '@mdi/js';
-import { BaseProps }       from '@hauke5/components/BaseProps';
-import { Icon }            from '@hauke5/components/Icon';
-import { Bar }             from '@hauke5/components/Bar/Bar';
+import { BaseProps }       from 'components/BaseProps';
+import { Icon }            from 'components/Icon';
+import { Bar }             from 'components/Bar/Bar';
 import styles              from './Slider.module.scss'
 
 

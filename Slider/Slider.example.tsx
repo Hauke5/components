@@ -1,5 +1,5 @@
 import { useState }        from 'react';
-import { formatDecimal }   from '@hauke5/lib/utils';
+import { formatDecimal }   from 'lib/utils';
 import { useLog }          from '../../lib/hooks';
 import { Slider, StepSlider }    
                            from './Slider';

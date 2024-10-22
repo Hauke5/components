@@ -7,10 +7,9 @@ import { EditorState, Plugin, Transaction }
                                     from 'prosemirror-state';
 import { EditorView as PmEditorView }  
                                     from 'prosemirror-view';
-import { keymap }                   from 'prosemirror-keymap';
-import { Log }                      from '@hauke5/lib/utils';
-import { useAppDesc }               from '@hauke5/lib/apps';
-import { BaseProps }                from '@hauke5/components/BaseProps';
+import { Log }                      from 'lib/utils';
+import { useAppDesc }               from 'lib/apps';
+import { BaseProps }                from 'components/BaseProps';
 import { useEditorContext }         from './hooks/useEditorContext'
 import { changeContentPlugin, changedSelectionPlugin } 
                                     from './plugins/changedPlugin';
@@ -90,9 +89,6 @@ export function Editor({panelID, newContent='Your Text Here', className, usePopu
    function onClick(e:MouseEvent<HTMLDivElement>) {
       // for some reason, checking todo list items doesn't work without this event
       e.preventDefault()
-   }
-   function defaultKeyBindings() {
-      return keymap({})
    }
 }
 

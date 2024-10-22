@@ -8,7 +8,7 @@
 import { useRef, useEffect, ReactNode } 
                         from 'react';
 import { createRoot }   from 'react-dom/client';
-import { BaseProps }    from '@hauke5/components/BaseProps';
+import { BaseProps }    from 'components/BaseProps';
 import styles           from './Popup.module.scss'
   
 

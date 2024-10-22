@@ -256,7 +256,6 @@ export function getLink(state: EditorState) {
       node.marks.forEach(mark => {
          const attrs = mark.attrs
          if (attrs.href) href = attrs.href
-         console.log(attrs)
       })
       return true
    })

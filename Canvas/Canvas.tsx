@@ -1,7 +1,7 @@
 import { useEffect, MouseEvent } 
                         from "react";
-import { useResizer }   from "@hauke5/lib/hooks"
-import { BaseProps }    from "@hauke5/components/BaseProps";
+import { useResizer }   from "lib/hooks"
+import { BaseProps }    from "components/BaseProps";
 import styles           from './Canvas.module.scss'
 
 const AUTO_SIZE = 500

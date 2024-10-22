@@ -1,5 +1,5 @@
 {
-  "name": "@hauke5/components",
+  "name": "components",
   "version": "1.3.0",
   "description": "nextjs component modules for use with hauke5 apps",
   "main": "index.js",

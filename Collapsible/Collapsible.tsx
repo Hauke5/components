@@ -1,8 +1,8 @@
 import styles              from './Collapsible.module.scss'
 import { useEffect, useRef, useState }        
                            from 'react'
-import { BaseProps }       from '@hauke5/components/BaseProps'
-import { useRerender }     from '@hauke5/lib/hooks/useRerender'
+import { BaseProps }       from 'components/BaseProps'
+import { useRerender }     from 'lib/hooks/useRerender'
 
 
 export interface CollapsibleProps extends BaseProps {

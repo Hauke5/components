@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { BaseProps } from '@hauke5/components/BaseProps';
+import { BaseProps } from 'components/BaseProps';
 import styles        from './ButtonGroup.module.scss'
 
 export interface ButtonGroupProps extends BaseProps {

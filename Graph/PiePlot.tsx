@@ -1,4 +1,4 @@
-import { useLog }          from "@hauke5/lib/hooks";
+import { useLog }          from "lib/hooks";
 import { useGraphContext } from "./useGraphContext";
 import styles              from './Graph.module.scss'
 import { PolarScales, Scale }     from "./types";

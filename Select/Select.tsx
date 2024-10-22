@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState }  
                            from 'react';
-import { BaseProps }       from '@hauke5/components/BaseProps';
+import { BaseProps }       from 'components/BaseProps';
 import styles              from './Select.module.scss'
 
 export interface ValuerFn{ (newValue?:string):string|undefined }

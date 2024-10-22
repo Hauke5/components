@@ -1,15 +1,15 @@
 import { useEffect, useRef } 
                            from "react"
 import { Log, MS2DAYS, formatDate } 
-                           from "@hauke5/lib/utils"
+                           from "lib/utils"
 import { CartesianScales, CartesianScalesConfig, CategoricalScale, ContinuousScale, DateScale, PolarScales, 
          PolarScalesConfig, Scale, ScaleCfg, ScaleRanges, ScalesConfig, 
          ScalesType,
          ScalesTypeCartesian,
          ScalesTypePolar} 
                            from "./types"
-import { formatDecimal }   from "@hauke5/lib/utils/number"
-import { useRerender } from "@hauke5/lib/hooks"
+import { formatDecimal }   from "lib/utils/number"
+import { useRerender } from "lib/hooks"
 
 const log = Log('useScales')
 

@@ -1,10 +1,10 @@
 'use client'
 import { MouseEvent, useEffect, useRef, useState, useTransition }    
                                  from "react"
-import { Rerender, useRerender } from "@hauke5/lib/hooks/useRerender"
-import { BaseProps }             from "@hauke5/components/BaseProps"
-import { Input, InputDataType }  from "@hauke5/components/Input/Input"
-import { ErrorBoundary }         from "@hauke5/lib/errors"
+import { Rerender, useRerender } from "lib/hooks/useRerender"
+import { BaseProps }             from "components/BaseProps"
+import { Input, InputDataType }  from "components/Input/Input"
+import { ErrorBoundary }         from "lib/errors"
 import { DlgConfig, DialogButtonConfig,  DlgReturn, DialogDesc, DialogItemResult, ItemsLiteral }   
                                  from './DialogTypes'
 import styles                    from './Dialog.module.scss'

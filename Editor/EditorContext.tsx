@@ -1,9 +1,9 @@
 'use client'
 import { createContext, useRef, useState }         
                                  from "react";
-import { BaseProps }             from "@hauke5/components/BaseProps";
-import { ErrorBoundarySuspense } from "@hauke5/lib/errors/ErrorBoundary";
-import { Log }                   from "@hauke5/lib/utils";
+import { BaseProps }             from "components/BaseProps";
+import { ErrorBoundarySuspense } from "lib/errors/ErrorBoundary";
+import { Log }                   from "lib/utils";
 import { EditorView }            from "./Editor";
 
 const log = Log(`EditorContext`)

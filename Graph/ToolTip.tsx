@@ -1,11 +1,11 @@
 
-import { formatDate }         from '@hauke5/lib/utils'
-import { formatDecimal }      from '@hauke5/lib/utils/number'
+import { formatDate }         from 'lib/utils'
+import { formatDecimal }      from 'lib/utils/number'
 import { BaseProps }          from '../BaseProps'
 import styles                 from './Graph.module.scss'
 import { usePointerContext }  from './PointerContext'
-import { useGraphContext } from './useGraphContext'
-import { CartesianScales } from './types'
+import { useGraphContext }    from './useGraphContext'
+import { CartesianScales }    from './types'
 
 
 export type ToolTipProps = {

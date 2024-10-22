@@ -2,8 +2,8 @@ import { Fragment, MouseEvent, useEffect, useRef, useState }
                         from "react"
 import { mdiFileDocumentOutline, mdiFolder } 
                         from "@mdi/js"
-import { useAppDesc }   from "@hauke5/lib/apps"
-import { serverPathInfo } from "@hauke5/lib/fileIO/serverFileIO"
+import { useAppDesc }   from "lib/apps"
+import { serverPathInfo } from "lib/fileIO/serverFileIO"
 import { Scrollable }   from "../Scrollable"
 import { Icon }         from "../Icon"
 import { DialogButtonConfig, DlgConfig, DlgReturn, OpenDialog } 

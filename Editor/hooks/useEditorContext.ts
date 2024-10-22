@@ -1,4 +1,4 @@
-import { Log }          from "@hauke5/lib/utils"
+import { Log }          from "lib/utils"
 import { useContext }   from "react"
 import { EditorContext, editorContext }   
                         from "../EditorContext"

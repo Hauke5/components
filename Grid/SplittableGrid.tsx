@@ -2,11 +2,11 @@
 
 import { mdiClose }  from '@mdi/js';
 import { Rerender, useLog, useRerender } 
-                     from '@hauke5/lib/hooks';
+                     from 'lib/hooks';
 import { ReactElement, ReactNode, useEffect, useRef }  
                      from 'react';
 import { Icon }      from '../Icon';
-import { BaseProps } from '@hauke5/components/BaseProps';
+import { BaseProps } from 'components/BaseProps';
 import { Grid }      from './Grid';
 import styles        from './SplittableGrid.module.scss'
 

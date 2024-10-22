@@ -1,7 +1,7 @@
 import { JSXElementConstructor, MouseEvent, ReactElement, ReactFragment, ReactNode, ReactPortal, useState }       
                               from 'react';
-import { Grid }               from '@hauke5/components/Grid/Grid';
-import { BaseProps }          from '@hauke5/components/BaseProps';
+import { Grid }               from 'components/Grid/Grid';
+import { BaseProps }          from 'components/BaseProps';
 import styles                 from './Table.module.scss'
 
 

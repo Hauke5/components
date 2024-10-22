@@ -1,4 +1,4 @@
-import { formatDecimal } from '@hauke5/lib/utils';
+import { formatDecimal } from 'lib/utils';
 import { Bar } from './Bar';
 import styles        from './Bar.example.module.scss'
 

@@ -1,7 +1,7 @@
 'use client'
 import { ChangeEvent, useState }  
                      from 'react';
-import { formatDate }      from '@hauke5/lib/utils';
+import { formatDate }      from 'lib/utils';
 import styles        from './Input.example.module.scss'
 import { Input }     from './Input';
 

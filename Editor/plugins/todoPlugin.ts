@@ -5,7 +5,7 @@ import { EditorState, Plugin, PluginKey, Transaction }
 import { Decoration, EditorView, NodeView } 
                         from 'prosemirror-view'
 import { formatDate, Log } 
-                        from '@hauke5/lib/utils'
+                        from 'lib/utils'
 import { TodoAttrs }    from '../setup/Nodes/todoList'
 import { listItem }     from '../setup/Nodes/listItem'
 
@@ -111,7 +111,8 @@ function viewConstructor(node:Node, view:EditorView, getPos:()=>number, decorati
          selected,
          attrs,
          updateAttrs: (newAttrs:TodoAttrs) => {
-            view.dispatch(updateAttrs(getPos(), nodeState.node, newAttrs, view.state.tr))
+            if (attrs.todoChecked !== newAttrs.todoChecked) // avoids endless loop during todo creation
+               view.dispatch(updateAttrs(getPos(), nodeState.node, newAttrs, view.state.tr))
          }
       }
    }

@@ -1,7 +1,7 @@
 import styles           from './RadioGroup.module.scss'
 import { ReactNode, useEffect, useState }     
                         from 'react'
-import { BaseProps }    from '@hauke5/components/BaseProps'
+import { BaseProps }    from 'components/BaseProps'
 
 
 export interface RadioGroupProps extends Omit<BaseProps, 'onChange'> {

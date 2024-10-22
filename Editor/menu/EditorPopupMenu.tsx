@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } 
                            from 'react';
 import { Dialog, OpenDialog }   
-                           from '@hauke5/components/Dialog';
-import { Menu }            from '@hauke5/components/Menu/Menu';
+                           from 'components/Dialog';
+import { Menu }            from 'components/Menu/Menu';
 import { useDefaultMenu }  from '../hooks/useDefaultMenu';
 import styles              from '../styles/editor.module.scss'
 

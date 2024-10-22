@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react';
-import { BaseProps }       from '@hauke5/components/BaseProps';
+import { BaseProps }       from 'components/BaseProps';
 import styles              from './Collapsible2.module.scss'
 
 

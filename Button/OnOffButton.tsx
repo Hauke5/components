@@ -2,7 +2,7 @@
 'use client'
 import { ReactNode, useEffect, useState } 
                      from 'react'
-import { BaseProps } from '@hauke5/components/BaseProps'
+import { BaseProps } from 'components/BaseProps'
 import styles        from './Button.module.scss'
 
 export interface OnOffButtonProps extends Omit<BaseProps, 'onChange'>{

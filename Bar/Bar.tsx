@@ -1,5 +1,5 @@
-import { BaseProps }       from '@hauke5/components/BaseProps'
-import { formatDecimal }   from '@hauke5/lib/utils'
+import { BaseProps }       from 'components/BaseProps'
+import { formatDecimal }   from 'lib/utils'
 import styles              from './Bar.module.scss'
 
 export interface BarProps extends BaseProps {

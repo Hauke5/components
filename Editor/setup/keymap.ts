@@ -4,7 +4,7 @@ import {undo, redo}              from "prosemirror-history"
 import {Command}                 from "prosemirror-state"
 import {Attrs, MarkType, NodeType, Schema}         
                                  from "prosemirror-model"
-import { Log }                   from "@hauke5/lib/utils"
+import { Log }                   from "lib/utils"
 import { listItem, listItemEnterCommand } 
                                  from "./Nodes"
 

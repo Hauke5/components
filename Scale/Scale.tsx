@@ -1,7 +1,7 @@
 'use client'
 import { MouseEvent, MutableRefObject, useEffect, useRef, useState, WheelEvent } 
                                  from 'react';
-import { BaseProps }             from '@hauke5/components/BaseProps';
+import { BaseProps }             from 'components/BaseProps';
 import styles                    from './Scale.module.scss'
 
 

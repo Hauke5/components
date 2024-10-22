@@ -14,7 +14,7 @@
  * @module
  */
 
-import { BaseProps }    from '@hauke5/components/BaseProps'
+import { BaseProps }    from 'components/BaseProps'
 import styles           from './Scrollable.module.scss'
 
 

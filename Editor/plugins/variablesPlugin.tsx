@@ -17,7 +17,7 @@ import { Plugin, PluginKey }
                         from "prosemirror-state"
 import { Decoration, DecorationSet } 
                         from "prosemirror-view"
-import { Log }          from "@hauke5/lib/utils"
+import { Log }          from "lib/utils"
 import { pluginTiming } from "../hooks/useTimings"
 import styles           from './plugin.module.scss'
 

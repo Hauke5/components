@@ -1,4 +1,4 @@
-import { Log }          from '@hauke5/lib/utils';
+import { Log }          from 'lib/utils';
 import { EditorState, Plugin, PluginKey }    
                         from 'prosemirror-state';
 import { Dispatch, useEffect, useId, useState } 

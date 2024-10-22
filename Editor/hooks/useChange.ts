@@ -1,4 +1,4 @@
-import { Log }                      from "@hauke5/lib/utils";
+import { Log }                      from "lib/utils";
 import { EditorView }               from "../Editor"
 import { changedContentKey, changedSelectionKey } 
                                     from "../plugins/changedPlugin";

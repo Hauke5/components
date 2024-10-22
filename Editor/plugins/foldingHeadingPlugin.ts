@@ -3,7 +3,7 @@ import { Decoration, DecorationSet, EditorView }
 import { EditorState, Plugin, PluginKey } 
                            from "prosemirror-state";
 import { Node }            from "prosemirror-model";
-import { Log }             from '@hauke5/lib/utils/log'; 
+import { Log }             from 'lib/utils/log'; 
 import { pluginTiming }    from "../hooks/useTimings";
 import styles              from '../styles/editor.module.scss'
 import { findChildren }    from "../setup/Nodes";

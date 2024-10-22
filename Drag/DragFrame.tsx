@@ -1,6 +1,6 @@
 import { useState, useRef, MouseEvent, createContext, useContext, useEffect } 
                            from 'react';
-import { BaseProps }       from '@hauke5/components/BaseProps';
+import { BaseProps }       from 'components/BaseProps';
 import styles              from './Drag.module.scss'
 
 export interface DragProps extends BaseProps {

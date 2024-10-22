@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState }   
                                  from 'react';
-import { Dialog, OpenDialog }    from '@hauke5/components/Dialog';
-import { Log }                   from '@hauke5/lib/utils';
+import { Dialog, OpenDialog }    from 'components/Dialog';
+import { Log }                   from 'lib/utils';
 import { Menu, MenuItem}   
-                                 from '@hauke5/components/Menu/Menu';
-import { BaseProps }             from '@hauke5/components/BaseProps';
+                                 from 'components/Menu/Menu';
+import { BaseProps }             from 'components/BaseProps';
 import { useSelectionChange }    from '../hooks/useChange';
 import { useDefaultMenu }        from '../hooks/useDefaultMenu';
 import { useEditorContext }      from '../hooks/useEditorContext';

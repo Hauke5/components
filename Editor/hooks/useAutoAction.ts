@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useRef }             
                                  from 'react'
-import { getDebouncer, Log }     from '@hauke5/lib/utils'
+import { getDebouncer, Log }     from 'lib/utils'
 import { EditorView, serialize }           
                                  from '../Editor'
 import { useEditorContext } from './useEditorContext'

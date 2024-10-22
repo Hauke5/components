@@ -4,7 +4,7 @@ import { wrappingInputRule, textblockTypeInputRule, InputRule, inputRules}
                      from "prosemirror-inputrules"
 import {Fragment, Node, NodeType, Schema, Slice} 
                      from "prosemirror-model"
-import { Log }       from "@hauke5/lib/utils"
+import { Log }       from "lib/utils"
 import { BindingRules, PluginBinding, RuleBinding }   
                      from "../../schema"
 

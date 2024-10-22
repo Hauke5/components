@@ -1,5 +1,5 @@
 import { Fragment }        from "react";
-import { useLog }          from "@hauke5/lib/hooks";
+import { useLog }          from "lib/hooks";
 import { BaseProps }       from "../BaseProps";
 import { useGraphContext } from "./useGraphContext";
 import styles              from './Graph.module.scss'

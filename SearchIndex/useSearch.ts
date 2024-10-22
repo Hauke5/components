@@ -1,7 +1,7 @@
 import MiniSearch, { MatchInfo } 
                   from "minisearch"
 import { useRef } from "react"
-import { Log }    from "@hauke5/lib/utils"
+import { Log }    from "lib/utils"
 
 const log = Log(`useSearch`)
 

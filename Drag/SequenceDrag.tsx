@@ -4,7 +4,7 @@ import styles        from './Drag.module.scss'
 import { mdiClose }  from '@mdi/js'
 import { Icon }      from '../Icon/Icon'
 import { useLog }    from '../../lib/hooks/useLog'
-import { Log } from '@hauke5/lib/utils'
+import { Log } from 'lib/utils'
 
 const log = Log(`SequenceDrag`)
 

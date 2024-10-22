@@ -31,7 +31,7 @@
 import { CSSProperties, MouseEvent, TouchEvent, useRef, useState } 
                         from 'react'
 import styles           from './Grid.module.scss'
-import { BaseProps }    from '@hauke5/components/BaseProps';
+import { BaseProps }    from 'components/BaseProps';
 
 
 const MIN_SIZE = 5;  // dont resize to less than 5%

@@ -2,7 +2,7 @@ import { ReactNode, useRef, useState }
                            from "react";
 import { OnOffButton }     from '../Button/OnOffButton';
 import { Card }            from "../Card";
-import { useLog }          from '@hauke5/lib/hooks';
+import { useLog }          from 'lib/hooks';
 import { SplittableGrid }  from './SplittableGrid';
 
 

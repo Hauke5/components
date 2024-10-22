@@ -1,6 +1,6 @@
 import { DragEvent, ReactNode, useId, useState } 
                      from "react"
-import { BaseProps } from "@hauke5/components/BaseProps"
+import { BaseProps } from "components/BaseProps"
 import styles        from './Drag.module.scss'
 
 type UseDraggableProps = {

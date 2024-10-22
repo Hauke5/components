@@ -3,7 +3,7 @@ import { Decoration, DecorationSet }
                            from "prosemirror-view";
 import { Plugin, PluginKey, EditorState } 
                            from "prosemirror-state"
-import { getLocalStorage } from "@hauke5/lib/hooks";
+import { getLocalStorage } from "lib/hooks";
 import { pluginTiming }    from "../hooks/useTimings";
 
 

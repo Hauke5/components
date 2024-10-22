@@ -5,7 +5,7 @@ import { Plugin, PluginKey, EditorState, Selection }
                                     from "prosemirror-state";
 import { Decoration, DecorationSet, EditorView } 
                                     from "prosemirror-view";
-import { Log }                      from "@hauke5/lib/utils";
+import { Log }                      from "lib/utils";
 import { pluginTiming }             from "../hooks/useTimings";
 import { useCurrentEditorViewRef }  from "../hooks/useCurrentEditorView";
 import { scrollToPos }              from "../setup/utils";

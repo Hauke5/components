@@ -2,11 +2,11 @@ import { MutableRefObject, useEffect, useRef }
                                     from 'react';
 import { EditorView }               from 'prosemirror-view';
 import { mdiFormatListNumbered }    from '@mdi/js';
-import { useAppDesc }               from '@hauke5/lib/apps';
-import { Log }                      from '@hauke5/lib/utils';
-import { OpenDialog }               from '@hauke5/components/Dialog';
+import { useAppDesc }               from 'lib/apps';
+import { Log }                      from 'lib/utils';
+import { OpenDialog }               from 'components/Dialog';
 import { MenuItem, MenuItemSpec, menuSeparator }   
-                                    from '@hauke5/components/Menu/Menu';
+                                    from 'components/Menu/Menu';
 import { menuItemSpecs }            from '../menu/menuItemSpecs';
 import { useCurrentEditorViewRef }  from './useCurrentEditorView';
 

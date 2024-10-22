@@ -2,7 +2,7 @@ import { ChangeEvent, ReactNode, useRef, useState }
                                  from 'react'
 import { mdiCloseCircle, mdiMagnify }            
                                  from '@mdi/js'
-import { Icon }                  from '@hauke5/components/Icon'
+import { Icon }                  from 'components/Icon'
 import { BaseProps }             from '../BaseProps'
 import styles                    from './search.module.scss'
 import { type useSearch }        from './useSearch'

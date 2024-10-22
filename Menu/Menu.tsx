@@ -2,7 +2,7 @@
 import Link          from 'next/link'
 import { MouseEvent, ReactNode, useState } 
                      from 'react'
-import { BaseProps } from '@hauke5/components/BaseProps'
+import { BaseProps } from 'components/BaseProps'
 import { Icon }      from '../Icon'
 import styles        from './Menu.module.scss'
 

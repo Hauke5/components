@@ -1,6 +1,6 @@
 import { MouseEvent, useEffect, useState }       
                                     from "react";
-import { useResizer }               from "@hauke5/lib/hooks";
+import { useResizer }               from "lib/hooks";
 import { BaseProps }                from "../BaseProps";
 import { GraphContext }             from "./GraphContext";
 import styles                       from "./Graph.module.scss";
